@@ -8,7 +8,7 @@ use yii\helpers\Json;
 use yii\rest\ActiveController;
 use yii\data\ActiveDataProvider;
 //use common\models\User;
-use lukisongroup\models\system\user\UserloginSearch;
+use api\modules\sistem\models\UserloginSearch;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\QueryParamAuth;
 use yii\filters\auth\HttpBasicAuth;
