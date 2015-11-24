@@ -67,7 +67,8 @@ class PasswordController extends ActiveController
 				'class' => \yii\filters\Cors::className(),
 				'cors' => [
 					// restrict access to
-					'Origin' => ['http://lukisongroup.com', 'http://lukisongroup.int','http://localhost','http://103.19.111.1','http://202.53.354.82'],
+					//'Origin' => ['http://lukisongroup.com', 'http://lukisongroup.int','http://localhost','http://103.19.111.1','http://202.53.354.82'],
+					'Origin' => ['*'],
 					'Access-Control-Request-Method' => ['POST', 'PUT','GET'],
 					// Allow only POST and PUT methods
 					'Access-Control-Request-Headers' => ['X-Wsse'],
@@ -112,12 +113,85 @@ class PasswordController extends ActiveController
 		}	 
 	} 	
 	
+	/**
+     * Get Request token
+	 * @type GET
+     */
+	protected function get_tokenp(){
+		$request = Yii::$app->request;				
+		 $models=Userlogin::find()->where("id='".$request->get("id")."' and auth_key='".$request->get("token")."'")->one();
+		if (count($models)!=0){
+			return $models->auth_key;
+		}else{
+			return "none";
+		}	 
+	} 
+	
+	protected function get_userid(){
+		$request = Yii::$app->request;				
+		 $models=Userlogin::find()->where("id='".$request->get("id")."' and auth_key='".$request->get("token")."'")->one();
+		if (count($models)!=0){
+			return $models->id;
+		}else{
+			return "none";
+		}	 
+	} 
+	
+	protected function get_usernm(){
+		$request = Yii::$app->request;				
+		 $models=Userlogin::find()->where("id='".$request->get("id")."' and auth_key='".$request->get("token")."'")->one();
+		if (count($models)!=0){
+			return $models->username;
+		}else{
+			return "none";
+		}	 
+	}
+	
+	protected function get_ruleid(){
+		$request = Yii::$app->request;				
+		$models=Userlogin::find()->where("id='".$request->get("id")."' and auth_key='".$request->get("token")."'")->one();
+		if (count($models)!=0){
+			return $models->POSITION_LOGIN;
+		}else{
+			return "none";
+		}	 
+	}
+	
+	protected function get_rulenm(){
+		$request = Yii::$app->request;				
+		$models=Userlogin::find()->where("id='".$request->get("id")."' and auth_key='".$request->get("token")."'")->one();
+		if (count($models)!=0){
+			if ($models->POSITION_LOGIN==1){
+				return 'SALESMAN';
+			}elseif($models->POSITION_LOGIN==2){
+				return 'SALES_PROMOTION';
+			}elseif($models->POSITION_LOGIN==3){
+				return 'CUSTOMER';
+			}elseif($models->POSITION_LOGIN==4){
+				return 'DISTRIBUTOR';
+			}elseif($models->POSITION_LOGIN==5){
+				return 'FACTORY_PABRIK';
+			}elseif($models->POSITION_LOGIN==6){
+				return 'OUTSOURCE';
+			}else{
+				return 'none';
+			}
+			
+		}else{
+			return "none";
+		}	 
+	}
+	
 	protected function passwordCheck(){
 		 $hasil='{
 			"passwordvalidation":
 					{
 						"login":"'. $this->get_status() .'",
-						"token":"reset"
+						"id":"'. $this->get_userid() .'",
+						"username":"'. $this->get_usernm() .'",
+						"rule_id":"'. $this->get_ruleid() .'",
+						"rule_nm":"'. $this->get_rulenm() .'",
+						"token":"'. $this->get_tokenp() .'"
 					}
 					
 		 }';
