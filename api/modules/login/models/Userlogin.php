@@ -2,7 +2,7 @@
 
 namespace api\modules\login\models;
 use Yii;
-
+use api\modules\login\models\Employe;
 class Userlogin extends \yii\db\ActiveRecord
 {
 	
