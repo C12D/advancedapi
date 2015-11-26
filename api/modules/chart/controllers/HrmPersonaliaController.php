@@ -33,7 +33,7 @@ use api\modules\chart\models\Rpt001;
   * @link http://api.lukisongroup.int/chart/hrmpersonalias
   * @see https://github.com/C12D/advanced/blob/master/api/modules/chart/controllers/PilotpController.php
  */
-class HrmpersonaliaController extends ActiveController
+class HrmPersonaliaController extends ActiveController
 {	
 	/**
 	  * Source Database declaration 
@@ -337,6 +337,27 @@ class HrmpersonaliaController extends ActiveController
 		return $myHeaderSourcePie_esm; 
 	}
 	
+	
+	
+	/**
+ 	 * Employee Summary
+	 * @type GET
+	 * @author ptrnov  <piter@lukison.com>
+	 * @since 1.1
+     */
+	protected function emp_summay(){
+		/* $emp_summary='
+			"Employe_Summary":[
+				{"emp_total":"120"},
+				{"emp_probation":"110"},
+				{"emp_contract":"110"},
+				{"emp_tetap":"110"}
+			]			
+		';
+		return $emp_summary; */
+		return Rpt001::find()->where("MODUL_NM='HRM_PERSONALIA_SUMMARY'")->one()->VAL_VALUE;
+	}
+	
 	/**
 	 * hrm_personalia - COMBINASI FUNCTION BUILD JSON
 	 * @author ptrnov  <piter@lukison.com>
@@ -353,7 +374,8 @@ class HrmpersonaliaController extends ActiveController
 			','.$this->bisnis_dataset(). 
 			','.$this->sss_header_pie(). 
 			','.$this->lipat_header_pie(). 	
-			','.$this->esm_header_pie().			
+			','.$this->esm_header_pie().
+			','.$this->emp_summay().			
 		'}';	 
 		return Json::decode($json_personalia);
 	}
