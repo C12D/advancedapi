@@ -158,9 +158,18 @@ class EsmSalesController extends ActiveController
 				"chart": {
 					"caption": "GT Customer",
 					"subcaption": "Daily Actual Total Stock sell-out",
+					"subcaptionFontBold": "0",
+					"subcaptionFontSize": "14",
 					"numberPrefix": "",
 					"yaxismaxvalue": "900000",
-					"theme": "ocean"
+					
+					"borderAlpha": "20",
+					"bgColor": "#ffffff",
+					"usePlotGradientColor": "0",
+					"plotBorderAlpha": "10", 
+					"showAlternateHGridColor": "0",
+					"showXAxisLine": "1"	
+					
 				},							
 				"data": '.$this->sales_gt_item() .'
 			}
