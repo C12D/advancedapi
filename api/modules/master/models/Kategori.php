@@ -55,6 +55,10 @@ class Kategori extends \yii\db\ActiveRecord
         ];
     }
 
+	public static function primaryKey()
+    {
+      return ['ID'];
+    }
     /**
      * @inheritdoc
      */

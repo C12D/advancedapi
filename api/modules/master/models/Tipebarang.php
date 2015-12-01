@@ -38,6 +38,11 @@ class Tipebarang extends \yii\db\ActiveRecord
         return Yii::$app->get('db_esm');
     }
 
+	public static function primaryKey()
+    {
+      return ['ID'];
+    }
+	
     /**
      * @inheritdoc
      */

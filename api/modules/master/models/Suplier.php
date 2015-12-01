@@ -57,7 +57,10 @@ class Suplier extends \yii\db\ActiveRecord
 		return $this->perusahaan->NM_CORP;
 	}
 	
-	
+	public static function primaryKey()
+    {
+      return ['ID'];
+    }
     /**
      * @inheritdoc
      */

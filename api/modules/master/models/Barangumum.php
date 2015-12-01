@@ -95,7 +95,7 @@ class Barangumum extends \yii\db\ActiveRecord
         return $this->hasOne(Perusahaan::className(), ['KD_CORP' => 'KD_CORP']);
     }
 	
-	 public static function primaryKey()
+	public static function primaryKey()
     {
       return ['ID'];
     }

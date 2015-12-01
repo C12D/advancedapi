@@ -38,6 +38,10 @@ class Unitbarang extends \yii\db\ActiveRecord
         return Yii::$app->get('db4');
     }
 
+	public static function primaryKey()
+    {
+      return ['ID'];
+    }
     /**
      * @inheritdoc
      */
