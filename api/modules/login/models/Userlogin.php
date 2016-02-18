@@ -1,6 +1,7 @@
 <?php
 
 namespace api\modules\login\models;
+use api\modules\login\models\Employe;
 use Yii;
 
 class Userlogin extends \yii\db\ActiveRecord

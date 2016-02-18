@@ -22,12 +22,12 @@ use yii\web\HttpException;
  *
  * @author -ptr.nov-
  */
-class TipebarangController extends ActiveController
+class UnitbarangController extends ActiveController
 {
-    public $modelClass = 'api\modules\master\models\Tipebarang';
+    public $modelClass = 'api\modules\master\models\Unitbarang';
 	public $serializer = [
 		'class' => 'yii\rest\Serializer',
-		'collectionEnvelope' => 'Tipebarang',
+		'collectionEnvelope' => 'Unitbarang',
 	];
 	  
     public function behaviors()    {
@@ -65,10 +65,7 @@ class TipebarangController extends ActiveController
         ]);
     }
 
-	/* public function beforeAction($action) { 
-        $this->enableCsrfValidation = false; 
-        return parent::beforeAction($action); 
-    }  */
+	
 	
 	
 	

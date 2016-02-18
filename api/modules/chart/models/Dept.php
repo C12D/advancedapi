@@ -20,7 +20,7 @@ class Dept extends \yii\db\ActiveRecord
     public static function getDb()
     {
         /* Author -ptr.nov- :UMUM */
-        return \Yii::$app->db_esm;
+        return \Yii::$app->db_hrm;
     }
 	
 	/* [2] TABLE SELECT */

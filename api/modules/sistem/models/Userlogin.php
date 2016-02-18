@@ -50,10 +50,10 @@ class Userlogin extends \yii\db\ActiveRecord
 			'avatarImage' => Yii::t('app', 'Avatar Image'),
         ];
     } 
-	/* public function getEmp()
+	 public function getEmp()
 	{
 		return $this->hasOne(Employe::className(), ['EMP_ID' => 'EMP_ID']);
-	} */
+	} 
 	
 	public function getUserprofile()
 	{

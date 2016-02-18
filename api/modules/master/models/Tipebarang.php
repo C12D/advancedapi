@@ -49,7 +49,7 @@ class Tipebarang extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['KD_TYPE', 'NM_TYPE','STATUS'], 'required'],
+            [['KD_TYPE', 'NM_TYPE','STATUS'], 'safe'],
             [['NOTE'], 'string'],
             [['CREATED_AT', 'UPDATED_AT'], 'safe'],
             [['STATUS'], 'integer'],

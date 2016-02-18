@@ -21,13 +21,13 @@ class Employe extends \yii\db\ActiveRecord
     public static function getDb()
 	{
 		/* Author -ptr.nov- : HRD */
-		return \Yii::$app->db1;  
+		return \Yii::$app->db_hrm;  
 	}
 	
 	/* [2] TABLE SELECT */
 	public static function tableName()
     {
-        return '{{dbm_086.a0001}}';
+        return '{{dbm002.a0001}}';
     }   
     
 	/* [3] RULE SCENARIO -> DetailView */
@@ -51,6 +51,7 @@ class Employe extends \yii\db\ActiveRecord
             [['EMP_IMG'], 'string', 'max' => 50],    
 			[['upload_file'], 'file', 'skipOnEmpty' => true,'extensions'=>'jpg,png', 'mimeTypes'=>'image/jpeg, image/png',],
 			[['CREATED_BY','UPDATED_BY'], 'string', 'max' => 50],
+			[['SIGNATURE'], 'string'], 
 			//[['UPDATED_TIME'], 'date'], errot message bool false
         ];
     }

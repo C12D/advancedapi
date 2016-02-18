@@ -74,6 +74,7 @@ class UserloginSearch extends Userlogin
 	 public function findUserAttr($id)
     {
 		$model = Userlogin::find()->select('*')
+				->joinWith('emp',true,'LEFT JOIN')
 				->joinWith('userprofile',true,'LEFT JOIN')
 				->Where(['dbm001.user.id' => $id]);
 				//->one();

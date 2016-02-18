@@ -6,7 +6,7 @@
  * Time: 19:44
  */
 
-namespace common\components;
+namespace api\components;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
@@ -43,6 +43,18 @@ class Useroption extends Component{
 	 public function Profile_user(){
 		$UserloginSearch = new UserloginSearch();	
 		$ModelProfile = UserloginSearch::findUserAttr(Yii::$app->user->identity->id)->one();
+		if (count($ModelProfile)<>0){ /*RECORD TIDAK ADA*/
+			//$userid=$ModelProfile->user->id;			
+			//$deptid=$ModelProfile->emp->DEP_ID;			
+			return $ModelProfile;
+		} else{
+			return 0;
+		}	
+	 }
+	 
+	 public function Profile_user_one($id){
+		$UserloginSearch = new UserloginSearch();	
+		$ModelProfile = UserloginSearch::findUserAttr($id)->one();
 		if (count($ModelProfile)<>0){ /*RECORD TIDAK ADA*/
 			//$userid=$ModelProfile->user->id;			
 			//$deptid=$ModelProfile->emp->DEP_ID;			
@@ -90,4 +102,7 @@ class Useroption extends Component{
 			return 0;
 		}	
 	 } 
+	 
+	
+	 
 }
